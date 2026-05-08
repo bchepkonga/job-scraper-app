@@ -5,7 +5,35 @@ import plotly.express as px
 import urllib.parse
 import streamlit.components.v1 as components
 import datetime
+def pi_sdk_integration():
+    # This script initializes the Pi SDK inside the Pi Browser
+    pi_js_code = """
+    <script src="https://sdk.minepi.com/pi-sdk.js"></script>
+    <script>
+        const Pi = window.Pi;
+        Pi.init({ version: "2.0", sandbox: true }); // Set sandbox: false for production
 
+        async function authPi() {
+            try {
+                const scopes = ['username', 'payments'];
+                const auth = await Pi.authenticate(scopes, onIncompletePaymentFound);
+                console.log("Logged in as: " + auth.user.username);
+            } catch (err) {
+                console.error(err);
+            }
+        }
+
+        function onIncompletePaymentFound(payment) {
+            console.log("Incomplete payment found", payment);
+        };
+
+        authPi();
+    </script>
+    """
+    components.html(pi_js_code, height=0)
+
+# Run the integration
+pi_sdk_integration()
 # --- 1. PAGE CONFIGURATION ---
 st.set_page_config(
     page_title="Visa Job Intel Global | Sponsorship Search Engine",
