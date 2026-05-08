@@ -10,7 +10,10 @@ st.set_page_config(
     layout="wide",
     initial_sidebar_state="expanded"
 )
+# --- 2. SEO CAPTION FOR GOOGLE & SOCIAL PREVIEWS ---
+st.sidebar.caption("Finding Visa Sponsorship & Relocation jobs in Europe for Tech, Healthcare, and Skilled Trades.")
 
+# --- 3. 
 # Custom CSS for Professional "Startup" Look
 st.markdown("""
     <style>
