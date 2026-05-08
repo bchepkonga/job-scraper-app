@@ -124,31 +124,52 @@ def fetch_data(niche_query, location, limit):
         return pd.DataFrame()
 
 # --- 4. SIDEBAR ---
+# --- SIDEBAR (CONTROLS & PATRON SECTION) ---
 with st.sidebar:
     st.image("https://cdn-icons-png.flaticon.com/512/2534/2534651.png", width=80)
     st.title("Search Control")
-    niches = get_niches()
     
+    # ... (Your existing niche/loc/limit inputs here) ...
+    niches = get_niches()
     selected_niche = st.selectbox("Market Sector", list(niches.keys()))
     loc = st.text_input("Region", "Global (USA, UK, Europe, Canada)")
     job_count = st.slider("Scrape Depth", 10, 100, 30)
     
-    run_btn = st.button("🚀 Generate Intelligence", use_container_width=True, type="primary")
+    run_btn = st.button("🚀 Find Sponsored Jobs", use_container_width=True, type="primary")
 
-    st.markdown("### ⌨️ Navigation")
-    target_idx = st.number_input("Target Lead #", min_value=0, max_value=job_count, step=1)
-    st.caption("Press **Ctrl + Enter** to apply to the targeted lead.")
-
-    # --- UPDATED PAYMENT SECTION ---
     st.markdown("---")
-    st.markdown("### ☕ Support Growth")
-    st.markdown('''<div class="payment-container"><div style="color:#3b82f6; font-size:12px; font-weight:bold;">PAYPAL</div><div style="color:white; font-size:13px;">bensonchepkonga@gmail.com</div></div>''', unsafe_allow_html=True)
-    with st.expander("Crypto Wallets"):
-        st.caption("BTC")
-        st.code("bc1qgcqn5affp67zxalsyfnrzjl7g6ne0fuspweyh6v93zff5dkmjjaq9jx0cj", language="text")
-        st.caption("USDT")
-        st.code("0x8a9b66289f819dccfc7f77b219d5e30747e40da9", language="text")
+    
+    # --- NEW PATRON SECTION ---
+    st.markdown("### ❤️ Support the Mission")
+    st.write("This engine is free and independent. Your support helps keep the data fresh for job seekers worldwide.")
 
+    # PayPal Button Style
+    st.markdown(f'''
+        <a href="https://www.paypal.com/paypalme/YOUR_LINK_HERE" target="_blank" style="text-decoration: none;">
+            <div style="background-color: #ffdd00; color: #000000; padding: 10px; border-radius: 10px; text-align: center; font-weight: bold; margin-bottom: 10px;">
+                ☕ Buy Me a Coffee (PayPal)
+            </div>
+        </a>
+    ''', unsafe_allow_html=True)
+
+    # Bitcoin QR Code Section
+    with st.expander("₿ Donate with Bitcoin"):
+        btc_address = "bc1qgcqn5affp67zxalsyfnrzjl7g6ne0fuspweyh6v93zff5dkmjjaq9jx0cj"
+        st.write("Scan to contribute:")
+        # Generates a real QR code using a public API
+        qr_url = f"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={btc_address}"
+        st.image(qr_url, caption="Scan with your BTC Wallet", use_container_width=True)
+        st.code(btc_address, language="text")
+
+    # Other Crypto
+    with st.expander("💵 Other Crypto (USDT/PI)"):
+        st.caption("USDT (ERC20/BEP20)")
+        st.code("0x8a9b66289f819dccfc7f77b219d5e30747e40da9", language="text")
+        st.caption("PI Network")
+        st.code("MALYJFJ5SVD45FBWN2GT4IW67SEZ3IBOFSBSPUFCWV427NBNLG3PWAAAAAAAAASUBBWCC", language="text")
+
+    st.markdown("---")
+    st.caption("Built to empower global talent. Every contribution makes a difference.")
 # --- 5. MAIN DISPLAY ---
 st.title("🌍 Visa Job Intelligence Global")
 st.markdown("#### Real-time Monitoring of Sponsorship Opportunities Worldwide.")
