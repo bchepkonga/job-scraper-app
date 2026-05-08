@@ -147,3 +147,27 @@ Best regards,
 # --- FOOTER ---
 st.markdown("---")
 st.caption("Intelligence System powered by Python & JobSpy. Focused on EU Work Visa & Blue Card markets.")
+
+# --- SIDEBAR SUPPORT SECTION ---
+st.sidebar.markdown("---")
+st.sidebar.header("☕ Support the Project")
+st.sidebar.write("If this tool helped you find a job lead, consider sending a small token to keep the servers running and the scraper updated!")
+
+# PayPal
+st.sidebar.subheader("💳 PayPal")
+st.sidebar.write("bensonchepkonga@gmail.com")
+
+# Bitcoin
+st.sidebar.subheader("₿ Bitcoin (BTC)")
+st.sidebar.code("bc1qgcqn5affp67zxalsyfnrzjl7g6ne0fuspweyh6v93zff5dkmjjaq9jx0cj", language="text")
+
+# USDT (ERC20/BEP20)
+st.sidebar.subheader("💵 USDT")
+st.sidebar.code("0x8a9b66289f819dccfc7f77b219d5e30747e40da9", language="text")
+
+# Pi Network
+st.sidebar.subheader("π Pi Network")
+st.sidebar.code("MALYJFJ5SVD45FBWN2GT4IW67SEZ3IBOFSBSPUFCWV427NBNLG3PWAAAAAAAAASUBBWCC", language="text")
+
+st.sidebar.markdown("---")
+st.sidebar.caption("Thank you for your support! 🙏")
