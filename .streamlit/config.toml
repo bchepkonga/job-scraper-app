@@ -1,0 +1,8 @@
+[theme]
+primaryColor = "#FF4B4B" # A strong "Call to Action" Red
+backgroundColor = "#0E1117" # Deep Midnight Black
+secondaryBackgroundColor = "#1F2937" # Slate Gray for sidebars
+textColor = "#FFFFFF"
+font = "sans serif" # Or "serif" for a more premium "newspaper" look
+[server]
+enableStaticServing = true
