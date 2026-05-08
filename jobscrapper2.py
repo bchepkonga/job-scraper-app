@@ -5,6 +5,16 @@ import plotly.express as px
 import urllib.parse
 import streamlit.components.v1 as components
 import datetime
+import streamlit as st
+
+# --- PI NETWORK VERIFICATION HACK ---
+# This checks if the bot is looking for the key and displays it if so
+try:
+    if "validation-key" in st.query_params:
+        st.write("88b9688ea5c20c51f8d05e697ef86df8350b99482ba6f4ee0a7ea6952b15528b26da850b144273ab1433ba6faac8c59993bb2748b0c282a991b1e97fc49a3bb2")
+        st.stop()
+except:
+    pass
 def pi_sdk_integration():
     # This script initializes the Pi SDK inside the Pi Browser
     pi_js_code = """
