@@ -1,3 +1,4 @@
 streamlit
 pandas
 python-jobspy
+streamlit-extras
