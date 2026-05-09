@@ -119,22 +119,46 @@ with st.sidebar:
     if 'target_idx' not in st.session_state: st.session_state.target_idx = 0
     st.session_state.target_idx = st.number_input("Target Lead #", 0, 50, 0)
     
-    # Modern width logic
+# --- MODERN ACTION BUTTON ---
     run_btn = st.button("🚀 Run Global Intel", type="primary", use_container_width=True)
 
+    # --- SUPPORT SECTION ---
     st.divider()
     st.markdown("### ❤️ Support Mission to keep running our servers ❤️❤️")
-    st.markdown('<a href="https://www.paypal.com/paypalme/bchepkonga@gmail.com" target="_blank" class="donate-box">☕ PayPal</a>', unsafe_allow_html=True)
+    st.write("If this tool saves you time, consider a small donation to keep the data fresh for everyone.")
+
+    # 1. UNIVERSAL PAYPAL LINK (Fixed to work with your email)
+    pay_url = "https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=bensonchepkonga@gmail.com&item_name=Visa+Job+Intel+Project+Support&currency_code=USD"
+    
+    st.markdown(f'''
+        <a href="{pay_url}" target="_blank" style="text-decoration: none;">
+            <div style="background-color: #ffdd00; color: #000000; padding: 12px; border-radius: 10px; text-align: center; font-weight: bold; border: 1px solid #e6c200; margin-bottom: 10px;">
+                ☕ Buy Me a Coffee (PayPal)
+            </div>
+        </a>
+    ''', unsafe_allow_html=True)
+
+    # 2. BITCOIN SECTION
     with st.expander("₿ Bitcoin"):
         addr = "bc1qgcqn5affp67zxalsyfnrzjl7g6ne0fuspweyh6v93zff5dkmjjaq9jx0cj"
-        st.image(f"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={addr}")
-        st.code(addr)
-    with st.expander("💵 USDT / π Pi"):
-        st.caption("USDT (ERC20/BEP20)")
-        st.code("0x8a9b66289f819dccfc7f77b219d5e30747e40da9")
-        st.caption("Pi Wallet")
-        st.code("MALYJFJ5SVD45FBWN2GT4IW67SEZ3IBOFSBSPUFCWV427NBNLG3PWAAAAAAAAASUBBWCC")
+        # Generate QR code automatically
+        qr_api = f"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={addr}"
+        st.image(qr_api, caption="Scan with BTC Wallet", use_container_width=True)
+        st.code(addr, language="text")
 
+    # 3. USDT & PI SECTION
+    with st.expander("💵 USDT / π Pi"):
+        st.markdown("**USDT (Stablecoin)**")
+        st.caption("Networks: ERC20 / BEP20 / Polygon")
+        st.code("0x8a9b66289f819dccfc7f77b219d5e30747e40da9", language="text")
+        
+        st.divider()
+        
+        st.markdown("**Pi Network**")
+        st.caption("Pi Browser Wallet Address")
+        st.code("MALYJFJ5SVD45FBWN2GT4IW67SEZ3IBOFSBSPUFCWV427NBNLG3PWAAAAAAAAASUBBWCC", language="text")
+
+    st.markdown("---")
 # --- 7. MAIN DASHBOARD ---
 st.title("🌍 Visa Job Intelligence Dashboard")
 
