@@ -1,4 +1,11 @@
 import streamlit as st
+
+# PI NETWORK VERIFICATION HACK (DO NOT REMOVE UNTIL VERIFIED)
+# This places the key at the top of the app's text so the bot can find it.
+st.caption("88b9688ea5c20c51f8d05e697ef86df8350b99482ba6f4ee0a7ea6952b15528b26da850b144273ab1433ba6faac8c59993bb2748b0c282a991b1e97fc49a3bb2")
+
+
+import streamlit as st
 import pandas as pd
 from jobspy import scrape_jobs
 import plotly.express as px
@@ -18,7 +25,7 @@ st.set_page_config(
 # To verify, use: https://visa-job-intel.streamlit.app/?verify=true
 try:
     if st.query_params.get("verify") == "true":
-        st.text("88b9688ea5c20c51f8d05e697ef86df8350b99482ba6f4ee0a7ea6952b15528b26da850b144273ab1433ba6faac8c59993bb2748b0c282a991b1e97fc49a3bb2")
+        st.write("88b9688ea5c20c51f8d05e697ef86df8350b99482ba6f4ee0a7ea6952b15528b26da850b144273ab1433ba6faac8c59993bb2748b0c282a991b1e97fc49a3bb2")
         st.stop()
 except:
     pass
