@@ -123,8 +123,8 @@ with st.sidebar:
     run_btn = st.button("🚀 Run Global Intel", type="primary", use_container_width=True)
 
     st.divider()
-    st.markdown("### ❤️ Support Mission")
-    st.markdown('<a href="https://www.paypal.com/paypalme/bchepkonga" target="_blank" class="donate-box">☕ PayPal</a>', unsafe_allow_html=True)
+    st.markdown("### ❤️ Support Mission to keep running our servers ❤️❤️")
+    st.markdown('<a href="https://www.paypal.com/paypalme/bchepkonga@gmail.com" target="_blank" class="donate-box">☕ PayPal</a>', unsafe_allow_html=True)
     with st.expander("₿ Bitcoin"):
         addr = "bc1qgcqn5affp67zxalsyfnrzjl7g6ne0fuspweyh6v93zff5dkmjjaq9jx0cj"
         st.image(f"https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={addr}")
